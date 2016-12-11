@@ -33,9 +33,9 @@ app.get('/', function(req, res) {
 })
 
 // don't redirect /
-app.all(/\/$/, function(req, res) {
-	res.redirect(req.originalUrl.slice(0, -1));
-})
+// app.all(/\/$/, function(req, res) {
+// 	res.redirect(req.originalUrl.slice(0, -1));
+// })
 
 // don't cache index.html,login.html
 app.get(/^\/[\w0-9.-]*\.html$/, function(req, res) {

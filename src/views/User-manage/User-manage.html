@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../../lib/js/jquery.min.js"></script>
+    <script src="../../lib/js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cGZxldFBKNqlpa0dsA0I8qBZG6VDQjRn"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/bootstrap/html5shiv.min.js"></script>
+    <script src="js/bootstrap/respond.min.js"></script>
+    <![endif]-->
+    <!--页面加载进度条-->
+    <script src="../../lib/js/pace/pace.min.js"></script>
+    <script src="../../lib/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
+    <script src="../../lib/js/jquery.extend.js" type="text/javascript"></script>
+    <script src="../../js/app.js" type="text/javascript"></script>
+    <script src="../../js/default.js" type="text/javascript"></script>
+    <script src="user-manage.js" type="text/javascript"></script>
+
+    <link rel="icon" href="../../favicon.ico" />
+    <link href="../../lib/css/pace/dataurl.css" rel="stylesheet" type="text/css" />
+    <link href="../../lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../lib/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../../lib/css/style-responsive.css" rel="stylesheet" />
+    <link href="../../lib/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/default.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="user-manage.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="page-header-fixed">
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+      <!-- BEGIN TOP NAVIGATION BAR -->
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <!-- BEGIN LOGO -->
+          <a class="brand" href="index.html">
+            <span style="color: red;font-size: 25px;">SMART</span>
+            <span style="color: white;font-size: 22px;margin-left: 10px;">CITY</span>
+          </a>
+          <!-- END LOGO -->
+          <!-- BEGIN USER -->
+          <ul class="nav pull-right">
+            <li class="dropdown user">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img alt="" src="../../image/avater_manager.jpg" />
+                <span class="username">wifi manager</span>
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                <li><a href="#"><i class="fa fa-tasks"></i> My Tasks</a></li>
+                <li class="divider"></li>
+                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- END USER -->
+        </div>
+      </div>
+      <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+      <!-- BEGIN SIDEBAR -->
+      <div class="page-sidebar nav-collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu">
+          <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+          </li>
+          <li class="start">
+            <a href="../../index.html">
+              <i class="fa fa-home fa-fw"></i>
+              <span class="title">&nbsp;主页面</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Mac-track/Mac-track.html">
+              <i class="fa fa-mobile-phone fa-fw"></i>
+              <span class="title"> &nbsp;设备轨迹</span>
+              
+            </a>
+          </li>
+          <li>
+            <a href="../People-track/People-track.html">
+              <i class="fa fa-hospital-o fa-fw"></i>
+              <span class="title">&nbsp;人流轨迹</span>
+            </a>
+          </li>
+          <li>
+            <a href="../AP-manage/AP-manage.html">
+              <i class="fa fa-hospital-o fa-fw"></i>
+              <span class="title">&nbsp;AP管理</span>
+            </a>
+          </li>
+          <li  class="has-sub" >
+            <a href="javascript:void(0);">
+              <i class="fa fa-angle-double-down fa-fw"></i>
+              <span class="title">&nbsp;AP排行榜</span>
+              <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+              <li><a href="../AP-rank/all-rank.html"><i class="fa fa-hospital-o fa-fw"></i>&nbsp;总排行榜</a></li>
+              <li><a href="../AP-rank/quarter-rank.html"><i class="fa fa-train fa-fw"></i>&nbsp;季度排行榜</a></li>
+              <li><a href="../AP-rank/month-rank.html"><i class="fa fa-coffee fa-fw"></i>&nbsp;月排行榜</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="User-manage.html">
+              <i class="fa fa-user fa-fw"></i>
+              <span class="title">&nbsp;用户管理</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content">
+      <!--content-page-->
+      <ul class="breadcrumb">
+        <li>当前位置：</li>
+        <li class="active">用户管理</li>
+      </ul>
+      <div id="page-container">
+        <div class="search">
+          <input type="text"  style="height: 45px;width:300px;display: inline-block;" class="form-control search-input" placeholder="请输入查询点用户编号......">
+          <button type="button" class="btn btn-default">Search</button>
+          <button type="button" class="btn btn-default" onclick="AddAp('.add-ap')" style="margin-left: 50px;color:white;">Add</button>
+        </div>
+        <div class="ap-table">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>AP名称</th>
+                <th>经度</th>
+                <th>纬度</th>
+                <th>备注</th>
+                <th>操作</th>
+                <th>详情</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button  onclick="DeleteAp('.del-ap')"><img alt="delete" src="../../image/delete.png"></button>
+                  <button  onclick="AddAp('.add-ap')"><img alt="edict" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>APName</td>
+                <td> 121.586426</td>
+                <td> 29.859608</td>
+                <td>医院</td>
+                <td>
+                  <button><img alt="delete" src="../../image/delete.png"></button>
+                  <button><img alt="delete" src="../../image/edict.png"></button>
+                </td>
+                <td>
+                  <a href="#">>></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="pagination" style="margin-top: 10px;margin-left: 50px;">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <div id="mask" class="mask"></div>
+    <div class="pop del-ap">
+      <div class = "head">
+        <span>删除APName</span>
+      </div>
+      <div class="body">
+        <div class="content">确定删除APName吗</div>
+        <div class="button-group">
+          <button type="button" onclick="CancelDeleteAp('.del-pop')" class="btn btn-default"> 取消</button>
+          <button type="button" onclick="CancelDel eteAp('.del-pop')" class="btn btn-default" style="background-color: #da4453; color: white;"> 确定</button>
+        </div>
+      </div>
+    </div>
+    <div class="pop add-ap">
+      <div class ="head">
+        <span>增加AP</span>
+      </div>
+      <div class="body">
+        <div class="name" style="margin-bottom: 10px;">
+          <label>AP名称</label>
+          <input type="text" placeholder="Name">
+        </div>
+        <div class="location" style="margin-bottom: 10px;">
+          <label style="width: 46px;">经度</label>
+          <input type="text" placeholder="121.2324" class="m-wrap medium">
+        </div>
+        <div class="location" style="margin-bottom: 10px;">
+          <label style="width: 46px;">纬度</label>
+          <input placeholder="29.2324" class="m-wrap medium">
+        </div>
+        <div class="remark">
+          <label style="width: 46px;">备注</label>
+          <select class="medium m-wrap" tabindex="1" style="height: 33px;">
+            <option value="Category 1"> 医院</option>
+            <option value="Category 2"> 学校 </option>
+            <option value="Category 3"> 车站</option>
+            <option value="Category 4"> 广场 </option>
+            <option value="Category 4"> 其他 </option>
+          </select>
+        </div>
+        <div class="button-group">
+          <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" > 取消</button>
+          <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" style="background-color: #00acac; color: white;"> 保存</button>
+        </div>
+      </div>
+    </div>
+    
+    
+    <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
+  </body>
+</html>

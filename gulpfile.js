@@ -21,7 +21,7 @@ gulp.task('hot', function () {
     }    
     // Serve files from the root of this project
     browserSync.init({
-        port: 8090,
+        port: config.port,
         server: {
             baseDir: srcDir,
             middleware: proxy
