@@ -24,6 +24,7 @@ $(function() {
                 type : "GET" ,
                 dataType : "json" ,
                 success : function(data) {
+                    console.log(data);
                     var positions = [];
                     positinsDate = [];
                     for(var i = 0; i < data.points.length; i++) {
@@ -47,7 +48,7 @@ $(function() {
                         var myPoint = positions[i];
                         var content = positinsDate[i];
 
-                        var myIcon = new BMap.Icon("image/point.png", new BMap.Size(20, 20), {
+                        var myIcon = new BMap.Icon("../../image/point.png", new BMap.Size(20, 20), {
                                     anchor : new BMap.Size(12, 30), // 中心点设置
                                 });
 

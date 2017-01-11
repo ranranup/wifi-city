@@ -1,4 +1,23 @@
 $(function () {
+    
+    $.ajax({
+                url : "/api/ranklist",
+                type : "GET" ,
+                dataType : "json" ,
+                success : function(data) {
+                   console.log(data);
+                } ,
+                error : function() {
+                    console.log("fail");
+                }
+        });
+
+
+
+
+    var categories = ['AP1', 'AP2', 'AP3', 'AP4', 'AP5', 'AP6', 'AP7', 'AP8', 'AP9', 'AP10']
+    var data = [29900, 171500, 106400, 129332, 144320, 221760, 301356, 181485, 322164, 219431]
+
     // 负载量前十名AP
     var chart = new Highcharts.Chart({
         chart: {
@@ -24,14 +43,14 @@ $(function () {
             }
         },
         xAxis: {
-            categories: ['AP1', 'AP2', 'AP3', 'AP4', 'AP5', 'AP6', 'AP7', 'AP8', 'AP9', 'AP10']
+            categories: categories
         },
         yAxis:{
         	title: {text: "AP负载量"}
 		},
         series: [{
         	name: "AP负载量",
-            data: [29900, 171500, 106400, 129332, 144320, 221760, 301356, 181485, 322164, 219431]
+            data: data
         }],
         credits:{
 		     enabled:false // 禁用版权信息

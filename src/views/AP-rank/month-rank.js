@@ -1,42 +1,65 @@
 $(function () {
     // 负载量前十名AP
-    var chart = new Highcharts.Chart({
-        chart: {
-            renderTo: 'top10',
-            type: 'column',
-            options3d: {
-                enabled: true,
-                alpha: 15,
-                beta: 15,
-                depth: 50,
-                viewDistance: 25
-            }
-        },
+    var data = [29900, 171500, 106400, 129332, 144320, 221760, 301356, 181485, 322164, 219431];
+    var chart = Highcharts.chart('top10', {
         title: {
             text: 'AP负载量排行榜Top 10'
         },
         subtitle: {
             text: '截止日期2016年12月3日'
         },
-        plotOptions: {
-            column: {
-                depth: 25
-            }
-        },
         xAxis: {
             categories: ['AP1', 'AP2', 'AP3', 'AP4', 'AP5', 'AP6', 'AP7', 'AP8', 'AP9', 'AP10']
         },
         yAxis:{
-        	title: {text: "AP负载量"}
-		},
+            title: {text: "AP负载量"}
+        },
         series: [{
-        	name: "AP负载量",
-            data: [29900, 171500, 106400, 129332, 144320, 221760, 301356, 181485, 322164, 219431]
+            type: 'column',
+            name: "AP负载量",
+            colorByPoint: true,
+            data: data,
+            showInLegend: false
         }],
         credits:{
-		     enabled:false // 禁用版权信息
-		}
+             enabled:false // 禁用版权信息
+        }
     });
+     $('#plain').click(function () {
+             chart.update({
+                 chart: {
+                     inverted: false,
+                     polar: false
+                 },
+                 subtitle: {
+                     text: '截止日期2016年12月3日'
+                 }
+             });
+         });
+     $('#inverted').click(function () {
+         // chart.update 支持全部属性动态更新
+         chart.update({
+             chart: {
+                 inverted: true,
+                 polar: false
+             },
+             subtitle: {
+                 text: '截止日期2016年12月3日'
+             }
+         });
+     });
+    $('#polar').click(function () {
+            chart.update({
+                chart: {
+                    inverted: false,
+                    polar: true
+                },
+                subtitle: {
+                    text: '截止日期2016年12月3日'
+                }
+            });
+        });
+
    
     // 负载量后十名AP
    $('#bottom10').highcharts({
