@@ -74,9 +74,6 @@ $(function() {
                         var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
                         map.openInfoWindow(infoWindow,point); //开启信息窗口
                     };
-
-                    
-
                 } ,
                 error : function() {
                     console.log("fail");

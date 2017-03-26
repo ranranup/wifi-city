@@ -11,12 +11,68 @@ $(function() {
 	marker.setAnimation(BMAP_ANIMATION_BOUNCE); // 跳动的动画
 	marker.enableDragging(); // 设置点可拖拽
 	
-	/*
-	 * var points = []; $(function() { $.ajax({ url: 'json/point.json', success:
-	 * function(data) { points = data; console.log(points); } }) })
-	 */
 	
-	var points = [{
+	
+	$(function() { 
+		var points = []; 
+		$.ajax({ 
+			/*url: 'json/point.json', */
+			url: 'api/load-analyze/', 
+			success:
+				function(data) { 
+					points = data; 
+					console.log(points); 
+
+					for (var i = 0; i < points.length; i++) {
+						var hotPoint = new BMap.Point(points[i].lng, points[i].lat);
+					
+						// 自定义覆盖物
+						var myIcon = new BMap.Icon("image/point.png", new BMap.Size(20, 20), {
+									anchor : new BMap.Size(12, 14) // 中心点设置
+								});
+					
+						var marker = new BMap.Marker(hotPoint, {icon : myIcon}); // 创建标注
+						map.addOverlay(marker); // 将标注添加到地图中
+					
+						marker.addEventListener("click", getAttr);
+						function getAttr() {
+							var p = marker.getPosition(); // 获取marker的位置
+							p.id = "123";
+							console.log("点的位置是" + hotPoint.lng + "," + hotPoint.lat);
+							console.log("marker的位置是" + p.lng + "," + p.lat);
+							location.href = "area-AP.html";// 转到二级页面
+						}
+					}
+					
+					if (!isSupportCanvas()) {
+						alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
+					}
+					
+					heatmapOverlay = new BMapLib.HeatmapOverlay({"radius" : 15});
+					map.addOverlay(heatmapOverlay);
+					heatmapOverlay.setDataSet({
+								data : points,
+								max : 100
+							});
+					// 显示热力图
+					heatmapOverlay.show();
+					function setGradient() {
+						var gradient = {};
+						var colors = document.querySelectorAll("input[type='color']");
+						colors = [].slice.call(colors, 0);
+						colors.forEach(function(ele) {
+									gradient[ele.getAttribute("data-key")] = ele.value;
+								});
+						heatmapOverlay.setOptions({
+									"gradient" : gradient
+								});
+					}
+				} 
+			}) 
+	})
+	 
+	
+	/*var points = [{
 				"lng" : 121.682989,
 				"lat" : 29.804456,
 				"count" : 1000
@@ -142,52 +198,9 @@ $(function() {
 				"lng" : 121.55131,
 				"lat" : 29.833056,
 				"count" : 1000
-			}];
+			}];*/
 	
-	for (var i = 0; i < points.length; i++) {
-		var hotPoint = new BMap.Point(points[i].lng, points[i].lat);
 	
-		// 自定义覆盖物
-		var myIcon = new BMap.Icon("image/point.png", new BMap.Size(20, 20), {
-					anchor : new BMap.Size(12, 14) // 中心点设置
-				});
-	
-		var marker = new BMap.Marker(hotPoint, {icon : myIcon}); // 创建标注
-		map.addOverlay(marker); // 将标注添加到地图中
-	
-		marker.addEventListener("click", getAttr);
-		function getAttr() {
-			var p = marker.getPosition(); // 获取marker的位置
-			p.id = "123";
-			console.log("点的位置是" + hotPoint.lng + "," + hotPoint.lat);
-			console.log("marker的位置是" + p.lng + "," + p.lat);
-			location.href = "area-AP.html";// 转到二级页面
-		}
-	}
-	
-	if (!isSupportCanvas()) {
-		alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
-	}
-	
-	heatmapOverlay = new BMapLib.HeatmapOverlay({"radius" : 15});
-	map.addOverlay(heatmapOverlay);
-	heatmapOverlay.setDataSet({
-				data : points,
-				max : 100
-			});
-	// 显示热力图
-	heatmapOverlay.show();
-	function setGradient() {
-		var gradient = {};
-		var colors = document.querySelectorAll("input[type='color']");
-		colors = [].slice.call(colors, 0);
-		colors.forEach(function(ele) {
-					gradient[ele.getAttribute("data-key")] = ele.value;
-				});
-		heatmapOverlay.setOptions({
-					"gradient" : gradient
-				});
-	}
 	// 判断浏览区是否支持canvas
 	function isSupportCanvas() {
 		var elem = document.createElement('canvas');
