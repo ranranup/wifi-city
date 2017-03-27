@@ -24,56 +24,59 @@ $(function() {
                 type : "GET" ,
                 dataType : "json" ,
                 success : function(data) {
-                    console.log(data);
                     var positions = [];
-                    positinsDate = [];
-                    for(var i = 0; i < data.points.length; i++) {
-                        positions.push(new BMap.Point(data.points[i].ap_lng, data.points[i].ap_lat));
-                        positinsDate.push("此刻时间：" + data.points[i].timestamp);
+                    var positinsDate = [];
+                    if(data.points.length == 0) {
+                        alert("不存在");
+                    } else {
+                        for(var i = 0; i < data.points.length; i++) {
+                            positions.push(new BMap.Point(data.points[i].lng, data.points[i].lat));
+                            positinsDate.push("此刻时间：" + data.points[i].tmstmp);
+                        }
+
+                        var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+                        var length = positions.length;
+                        driving.search(positions[0], positions[length-1], {waypoints:positions.slice(1,length-1)});//waypoints表示途经点
+                    
+                        var opts = {
+                            width : 50,     // 信息窗口宽度
+                            height: 10,     // 信息窗口高度
+                            backgroundColor: "#ccc",
+                            title : "信息窗口" , // 信息窗口标题
+                            enableMessage:true//设置允许信息窗发送短息
+                        };
+
+                        for(var i = 0;i < positions.length;i++){
+                            var myPoint = positions[i];
+                            var content = positinsDate[i];
+
+                            var myIcon = new BMap.Icon("../../image/point.png", new BMap.Size(20, 20), {
+                                        anchor : new BMap.Size(12, 30), // 中心点设置
+                                    });
+
+                            var marker = new BMap.Marker(myPoint, {icon : myIcon}); // 创建标注
+                            marker.setZIndex(999);
+                            map.addOverlay(marker);               // 将标注添加到地图中
+                            addMouseoverHandler(content,marker);
+                            addMouseoutHandler(content,marker);
+                        }
+                        function addMouseoverHandler(content,marker){
+                            marker.addEventListener("mouseover",function(e){
+                                openInfo(content,e);
+                            });
+                        };
+                        function addMouseoutHandler(content,marker){
+                            marker.addEventListener("mouseout",function(e){
+                                map.closeInfoWindow();
+                            });
+                        };
+                        function openInfo(content,e){
+                            var p = e.target;
+                            var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                            var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+                            map.openInfoWindow(infoWindow,point); //开启信息窗口
+                        };
                     }
-
-                    var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
-                    var length = positions.length;
-                    driving.search(positions[0], positions[length-1], {waypoints:positions.slice(1,length-1)});//waypoints表示途经点
-                
-                    var opts = {
-                        width : 50,     // 信息窗口宽度
-                        height: 10,     // 信息窗口高度
-                        backgroundColor: "#ccc",
-                        title : "信息窗口" , // 信息窗口标题
-                        enableMessage:true//设置允许信息窗发送短息
-                    };
-
-                    for(var i = 0;i < positions.length;i++){
-                        var myPoint = positions[i];
-                        var content = positinsDate[i];
-
-                        var myIcon = new BMap.Icon("../../image/point.png", new BMap.Size(20, 20), {
-                                    anchor : new BMap.Size(12, 30), // 中心点设置
-                                });
-
-                        var marker = new BMap.Marker(myPoint, {icon : myIcon}); // 创建标注
-                        marker.setZIndex(999);
-                        map.addOverlay(marker);               // 将标注添加到地图中
-                        addMouseoverHandler(content,marker);
-                        addMouseoutHandler(content,marker);
-                    }
-                    function addMouseoverHandler(content,marker){
-                        marker.addEventListener("mouseover",function(e){
-                            openInfo(content,e);
-                        });
-                    };
-                    function addMouseoutHandler(content,marker){
-                        marker.addEventListener("mouseout",function(e){
-                            map.closeInfoWindow();
-                        });
-                    };
-                    function openInfo(content,e){
-                        var p = e.target;
-                        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
-                        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
-                        map.openInfoWindow(infoWindow,point); //开启信息窗口
-                    };
                 } ,
                 error : function() {
                     console.log("fail");

@@ -4,10 +4,11 @@ $(function () {
     var month = date.getMonth() + 1;
     var day = date.getDate();
     $.ajax({
-                url : "http://192.168.1.108:8000/api/ranklist/",
+                url : "/api/ranklist/",
                 type : "GET" ,
                 dataType : "json" ,
                 success : function(data) {
+                    console.log(data.poi.length);
                        var tmp = data.poi;
                        var categories = [];
                        var data = [];

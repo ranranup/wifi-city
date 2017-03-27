@@ -14,15 +14,13 @@ $(function() {
 	
 	
 	$(function() { 
-		var points = []; 
 		$.ajax({ 
-			/*url: 'json/point.json', */
 			url: 'api/load-analyze/', 
-			success:
-				function(data) { 
-					points = data; 
-					console.log(points); 
-
+			type : "GET" ,
+            dataType : "json" ,
+			success: function(data) { 
+					var points = data.poi;
+					
 					for (var i = 0; i < points.length; i++) {
 						var hotPoint = new BMap.Point(points[i].lng, points[i].lat);
 					
