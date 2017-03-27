@@ -18,7 +18,6 @@
     <script src="../../lib/js/jquery.extend.js" type="text/javascript"></script>
     <script src="../../js/app.js" type="text/javascript"></script>
     <script src="../../js/default.js" type="text/javascript"></script>
-    <script src="user-manage.js" type="text/javascript"></script>
 
     <link rel="icon" href="../../favicon.ico" />
     <link href="../../lib/css/pace/dataurl.css" rel="stylesheet" type="text/css" />
@@ -28,7 +27,7 @@
     <link href="../../lib/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../../css/default.css" rel="stylesheet" type="text/css" />
     <link href="../../css/style.css" rel="stylesheet" type="text/css" />
-    <link href="user-manage.css" rel="stylesheet" type="text/css" />
+    <link href="user-profile.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="page-header-fixed">
     <!-- BEGIN HEADER -->
@@ -126,69 +125,73 @@
       <!--content-page-->
       <ul class="breadcrumb">
         <li>当前位置：</li>
-        <li class="active">用户管理</li>
+        <li class="active">用户信息</li>
       </ul>
-      <div id="page-container">
-        <div class="search">
-          <input type="text"  style="height: 45px;width:300px;display: inline-block;" class="form-control search-input" placeholder="请输入查询点用户编号......">
-          <button type="button" class="btn btn-default">Search</button>
-          <button type="button" class="btn btn-default" onclick="AddAp('.add-ap')" style="margin-left: 50px;color:white;">Add</button>
+      <div id="page-container" CLASS="profile">
+        <div class="page-title mb20">My Profile</div>
+        <div class="profile-detail" data-ng-hide="flag.isLoading"></div>
+        <div class="profile-line-image">
+          <img src="../../image/avater_manager_profile.jpg">
         </div>
-        <div class="ap-table">
-          <table id="cs_table" class="datatable"></table>
+        <div class="profile-container">
+          <div class="item user-id">
+            <label>用户 ID</label>
+            <span>admin@zju.edu.cn</span>
+          </div>
+          <div class="septal-line-fc"></div>
+          <div class="item full-name">
+            <label>全名</label>
+            <span>JsonWang</span>
+          </div>
+
+        <div class="septal-line"></div>
+
+          <div class ="item country">
+            <label>国家</label>
+            <span>China</span>
+          </div>
+          <!--<div class="septal-line-fc"></div>-->
+          <!--<div class ="item company">-->
+            <!--<label class="label" style="color: black;">Company</label>-->
+            <!--<span>wifi数据分析</span>-->
+          <!--</div>-->
+
+        <div class="septal-line"></div>
+
+          <div class ="item business-unit">
+            <label>所属部门</label>
+            <span>浙江大学</span>
+          </div>
+          <div class="septal-line-fc"></div>
+          <div class ="item work-location">
+            <label>所在地址</label>
+            <span>浙江省宁波市浙江大学软件学院宁波分院</span>
+          </div>
+
+        <div class="septal-line"></div>
+
+          <div class="item cost-center">
+            <label>邮政编号</label>
+            <span>315000</span>
+          </div>
+
+        <div class="septal-line"></div>
+
+          <div class="item profile-shipping-address">
+            <label>办公地址</label>
+            <span>浙江省宁波市浙江大学软件学院宁波分院</span>
+          </div>
+
+        <div style="height:10px"></div>
+
+          <div class="item purchase-type">
+            <label>用户类型</label>
+            <span>超级管理员</span>
+          </div>
+      </div>
       </div>
     </div>
-    <div id="mask" class="mask"></div>
-    <div class="pop del-ap">
-      <div class = "head">
-        <span>删除用户</span>
-      </div>
-      <div class="body">
-        <div class="content">确定删除该用户吗</div>
-        <div class="button-group">
-          <button type="button" onclick="CancelDeleteAp('.del-pop')" class="btn btn-default"> 取消</button>
-          <button type="button" onclick="CancelDeleteAp('.del-pop')" class="btn btn-default" style="background-color: #da4453; color: white;"> 确定</button>
-        </div>
-      </div>
-    </div>
-    <div class="pop add-ap">
-      <div class ="head">
-        <span>增加用户</span>
-      </div>
-      <div class="body">
-        <div class="name" style="margin-bottom: 10px;">
-          <label>用户名</label>
-          <input type="text" placeholder="Name">
-        </div>
-        <div class="location" style="margin-bottom: 10px;">
-          <label style="width: 46px;">姓名</label>
-          <input type="text" placeholder="121.2324" class="m-wrap medium">
-        </div>
-        <div class="location" style="margin-bottom: 10px;">
-          <label style="width: 46px;">部门</label>
-          <input placeholder="29.2324" class="m-wrap medium">
-        </div>
-        <div class="location" style="margin-bottom: 10px;">
-          <label style="width: 46px;">角色</label>
-          <input placeholder="29.2324" class="m-wrap medium">
-        </div>
-        <div class="remark">
-          <label style="width: 46px;">备注</label>
-          <select class="medium m-wrap" tabindex="1" style="height: 33px;">
-            <option value="Category 1"> 医院</option>
-            <option value="Category 2"> 学校 </option>
-            <option value="Category 3"> 车站</option>
-            <option value="Category 4"> 广场 </option>
-            <option value="Category 4"> 其他 </option>
-          </select>
-        </div>
-        <div class="button-group">
-          <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" > 取消</button>
-          <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" style="background-color: #00acac; color: white;"> 保存</button>
-        </div>
-      </div>
-    </div>
-    
+
     
     <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
   </body>

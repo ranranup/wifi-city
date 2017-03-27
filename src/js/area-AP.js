@@ -1,5 +1,29 @@
-$(function () {
-	//饼图
+$(function() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+
+    var mydata = [];
+    /*$.ajax({
+        url: "/api/device-trail?mac=" + macId,
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+
+        }
+    })*/
+
+    mydata = [
+        ['一楼电梯旁', 45.0],
+        ['二楼会议室', 26.8], 
+        ['后勤部', 12.8], 
+        ['电影院', 8.5],
+        ['奶茶店', 6.2],
+        ['童装专卖店', 0.7]
+    ];
+    //饼图
     $('#pieChart').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -7,7 +31,7 @@ $(function () {
             plotShadow: false
         },
         title: {
-            text: 'xx商城各个AP负载量占总负载量的百分比，2016年11月'
+            text: 'xx商城各个AP负载量占总负载量的百分比（' + year + '年' + month + '月' + day + '日）'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -28,30 +52,18 @@ $(function () {
         series: [{
             type: 'pie',
             name: 'Browser share',
-            data: [
-                ['一楼电梯旁',   45.0],
-                ['二楼会议室',       26.8],
-                {
-                    name: '后勤部',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
-                ['电影院',    8.5],
-                ['奶茶店',     6.2],
-                ['童装专卖店',   0.7]
-            ]
+            data: mydata
         }],
-        credits:{
-		     enabled:false // 禁用版权信息
-		}
+        credits: {
+            enabled: false // 禁用版权信息
+        }
     });
-    
+
     //面积图
     Highcharts.setOptions({
         timezoneOffset: -8
     });
-    $.getJSON('http://datas.org.cn/jsonp?filename=json/usdeur.json&callback=?', function (data) {
+    $.getJSON('http://datas.org.cn/jsonp?filename=json/usdeur.json&callback=?', function(data) {
         $('#timeChart').highcharts({
             chart: {
                 zoomType: 'x'
@@ -61,7 +73,7 @@ $(function () {
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
-                '鼠标拖动可以进行缩放' : '手势操作进行缩放'
+                    '鼠标拖动可以进行缩放' : '手势操作进行缩放'
             },
             xAxis: {
                 type: 'datetime',
@@ -127,12 +139,12 @@ $(function () {
                 name: '个数',
                 data: data
             }],
-            credits:{
-			     enabled:false // 禁用版权信息
-			}
+            credits: {
+                enabled: false // 禁用版权信息
+            }
         });
     });
-    
+
     //折线图
     $('#compareChart').highcharts({
         title: {
@@ -140,12 +152,13 @@ $(function () {
             x: -20 //center
         },
         subtitle: {
-            text: '2016年11月',
+            text: year + '年' + month + '月' + day + '日',
             x: -20
         },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+            ]
         },
         yAxis: {
             title: {
@@ -179,8 +192,8 @@ $(function () {
             name: '后勤部',
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
         }],
-        credits:{
-		     enabled:false // 禁用版权信息
-		}
+        credits: {
+            enabled: false // 禁用版权信息
+        }
     });
 });

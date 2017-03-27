@@ -1,0 +1,80 @@
+.profile{
+    padding: 20px;
+}
+.profile .septal-line{
+    height: 1px;
+}
+.profile .error {
+    background-color: white;
+    text-align: center;
+    font-family: ibm-font-medium;
+    font-size: 24px;
+    padding: 1em;
+}
+.profile-line {
+    height: 40px;
+    display: flex;
+}
+.profile .item{
+    display: flex;
+    background-color: white;
+    /*text-align: center;*/
+}
+.profile-line-image{
+    background-color: white;
+    line-height: 40px;
+    /*padding-top: 16px;*/
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-line-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.profile .item label {
+    flex:2;
+    font-size: 16px;
+    font-family: ibm-font-medium;
+    padding-left: 20%;
+}
+.profile .item span {
+    flex:2;
+    font-size: 14px;
+    font-family: ibm-font-light;
+}
+/*.profile-shipping-address span{*/
+    /*flex:3.1;*/
+    /*font-family: ibm-font-medium;*/
+/*}*/
+.cost-center span{
+    flex:3.1;
+}
+.purchase-type span{
+    flex:3.1;
+}
+.logout {
+    background-color: white;
+    line-height: 48px;
+    text-align: center;
+    /*  width: 99%; */
+    margin-top: 20px;
+}
+.logout a {
+    font-family : ibm-font-medium;
+    font-size : 16px;
+    color: #333;
+}
+
+/* MVP */
+.profile-tbl tr {
+    border-bottom: 1px solid rgb(240, 242, 244);
+    background: #ffffff;
+}
+
+.profile-tbl tr.editable {
+    display: none;
+}
+.septal-line{
+
+}

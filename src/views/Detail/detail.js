@@ -1,9 +1,9 @@
-$(function () {
+$(function() {
     //面积图
     Highcharts.setOptions({
         timezoneOffset: -8
     });
-    $.getJSON('http://datas.org.cn/jsonp?filename=json/usdeur.json&callback=?', function (data) {
+    $.getJSON('http://datas.org.cn/jsonp?filename=json/usdeur.json&callback=?', function(data) {
         $('#timeChart').highcharts({
             chart: {
                 zoomType: 'x'
@@ -13,7 +13,7 @@ $(function () {
             },
             subtitle: {
                 text: document.ontouchstart === undefined ?
-                '鼠标拖动可以进行缩放' : '手势操作进行缩放'
+                    '鼠标拖动可以进行缩放' : '手势操作进行缩放'
             },
             xAxis: {
                 type: 'datetime',
@@ -79,9 +79,9 @@ $(function () {
                 name: '个数',
                 data: data
             }],
-            credits:{
-			     enabled:false // 禁用版权信息
-			}
+            credits: {
+                enabled: false // 禁用版权信息
+            }
         });
     });
 });

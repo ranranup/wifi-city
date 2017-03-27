@@ -50,7 +50,7 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                <li><a href="../User-profile/User-profile.html"><i class="fa fa-user"></i> My Profile</a></li>
                                 <li><a href="#"><i class="fa fa-tasks"></i> My Tasks</a></li>
                                 <li class="divider"></li>
                                 <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Log Out</a></li>
@@ -128,175 +128,13 @@
             </ul>
             <div id="page-container">
                 <div class="search">
-                    <input type="text"  style="height: 45px;width:300px;display: inline-block;" class="form-control search-input" placeholder="请输入查询点AP编号......">
-                    <button type="button" class="btn btn-default">Search</button>
+                    <input type="text" id="search_input" class="form-control search-input" placeholder="请输入查询点AP编号......">
+                    <button type="button" id="search_button" class="btn btn-default" onclick="SearchAP()">Search</button>
                     <button type="button" class="btn btn-default" onclick="AddAp('.add-ap')" style="margin-left: 50px;color:white;">Add</button>
                 </div>
                 <div class="ap-table">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>编号</th>
-                                <th>AP名称</th>
-                                <th>经度</th>
-                                <th>纬度</th>
-                                <th>备注</th>
-                                <th>操作</th>
-                                <th>详情</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button  onclick="DeleteAp('.del-ap')"><img alt="delete" src="../../image/delete.png"></button>
-                                    <button  onclick="AddAp('.add-ap')"><img alt="edict" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>APName</td>
-                                <td> 121.586426</td>
-                                <td> 29.859608</td>
-                                <td>医院</td>
-                                <td>
-                                    <button><img alt="delete" src="../../image/delete.png"></button>
-                                    <button><img alt="delete" src="../../image/edict.png"></button>
-                                </td>
-                                <td>
-                                    <a href="#">>></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <ul class="pagination" style="margin-top: 10px;margin-left: 50px;">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    <table id="cs_table" class="datatable"></table>
+
                 </div>
                 
             </div>
@@ -310,7 +148,7 @@
                 <div class="content">确定删除APName吗</div>
                 <div class="button-group">
                     <button type="button" onclick="CancelDeleteAp('.del-pop')" class="btn btn-default"> 取消</button>
-                    <button type="button" onclick="CancelDel eteAp('.del-pop')" class="btn btn-default" style="background-color: #da4453; color: white;"> 确定</button>
+                    <button type="button" onclick="CancelDeleteAp('.del-pop')" class="btn btn-default" style="background-color: #da4453; color: white;"> 确定</button>
                 </div>
             </div>
         </div>
