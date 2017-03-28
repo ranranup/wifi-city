@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    App.init();
+});
 $(function () {
     // 负载量前十名AP
     var chart = new Highcharts.Chart({

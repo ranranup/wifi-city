@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    App.init();
+});
 $(function() {
     var date = new Date();
     var year = date.getFullYear();
@@ -7,7 +10,19 @@ $(function() {
         url: "/api/ranklist/",
         type: "GET",
         dataType: "json",
+        beforeSend: function() {
+            //添加 loding 样式
+            $("#loading").css("height", $(document).height());
+            $("#loading").css("width", $(document).width());
+            if ($(document).width() >= 880) {
+                $("#loading").css("margin-left", 225);
+            }
+            $("#loadingimg").css("display", "block");
+            $("#loading").show();
+        },
         success: function(data) {
+            $("#loading").hide(); //加载成功关闭loding
+            console.log(data.poi.length);
             var tmp = data.poi;
             var categories = [];
             var data = [];
@@ -166,11 +181,12 @@ $(function() {
         error: function() {
             console.log("fail");
         }
+
     });
-});
 
 
-/*var categories = ['AP1', 'AP2', 'AP3', 'AP4', 'AP5', 'AP6', 'AP7', 'AP8', 'AP9', 'AP10']
+
+    /*var categories = ['AP1', 'AP2', 'AP3', 'AP4', 'AP5', 'AP6', 'AP7', 'AP8', 'AP9', 'AP10']
     var data = [29900, 171500, 106400, 129332, 144320, 221760, 301356, 181485, 322164, 219431]
 
     // 负载量前十名AP
@@ -212,7 +228,7 @@ $(function() {
 		}
     });*/
 
-/* // 负载量后十名AP
+    /* // 负载量后十名AP
    $('#bottom10').highcharts({
 	    chart: {
 	        type: 'column',
@@ -252,7 +268,7 @@ $(function() {
 		}
 	});*/
 
-/*//3D饼图
+    /*//3D饼图
 	 $('#pie').highcharts({
         chart: {
             type: 'pie',
@@ -300,3 +316,4 @@ $(function() {
             ]
         }]
     });*/
+});

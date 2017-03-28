@@ -64,6 +64,18 @@
         </div>
         <!-- END HEADER -->
         <!-- BEGIN CONTAINER -->
+        <div class="alert alert-error">
+            <a class="close" data-dismiss="alert">×</a>
+            <strong>错误!</strong>信息提交错误,请再次尝试.
+        </div>
+        <div class="alert alert-success">
+            <a class="close" data-dismiss="alert">×</a>
+            <strong>成功!</strong>成功提交.
+        </div>
+        <!--<div class="alert alert-info">-->
+            <!--<a class="close" data-dismiss="alert">×</a>-->
+            <!--<strong>Info!</strong>Watch this, but you may forget.-->
+        <!--</div>-->
         <div class="page-container row-fluid">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar nav-collapse">
@@ -117,6 +129,12 @@
                             <span class="title">&nbsp;用户管理</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../Contact/contact.html">
+                            <i class="fa fa-user fa-fw"></i>
+                            <span class="title">&nbsp;联系我们</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -140,6 +158,7 @@
             </div>
         </div>
         <div id="mask" class="mask"></div>
+        <div id="loading" class="loading"><img id="loadingimg" src="../../image/loading.gif"></div>
         <div class="pop del-ap">
             <div class = "head">
                 <span>删除APName</span>
@@ -157,34 +176,35 @@
                 <span>增加AP</span>
             </div>
             <div class="body">
-                <div class="name" style="margin-bottom: 10px;">
-                    <label>AP名称</label>
-                    <input type="text" placeholder="Name">
+                <div class="add_item name">
+                    <label>AP_MAC</label>
+                    <input id="ap_mac" type="text" placeholder="xx:xx:xx:xx:xx:xx">
                 </div>
-                <div class="location" style="margin-bottom: 10px;">
-                    <label style="width: 46px;">经度</label>
-                    <input type="text" placeholder="121.2324" class="m-wrap medium">
+                <div class="add_item location">
+                    <label>经度</label>
+                    <input id="ap_lng" type="text" placeholder="121.2324" class="m-wrap medium">
                 </div>
-                <div class="location" style="margin-bottom: 10px;">
-                    <label style="width: 46px;">纬度</label>
-                    <input placeholder="29.2324" class="m-wrap medium">
+                <div class="add_item location">
+                    <label>纬度</label>
+                    <input  id="ap_lat" placeholder="29.2324" class="m-wrap medium">
                 </div>
-                <div class="remark">
-                    <label style="width: 46px;">备注</label>
-                    <select class="medium m-wrap" tabindex="1" style="height: 33px;">
-                        <option value="Category 1"> 医院</option>
-                        <option value="Category 2"> 学校 </option>
-                        <option value="Category 3"> 车站</option>
-                        <option value="Category 4"> 广场 </option>
-                        <option value="Category 4"> 其他 </option>
-                    </select>
+                <div class="add_item remark" style="margin-bottom:5px;">
+                    <label>位置信息</label>
+                    <textarea style="width: 100%;" id="ap_position" placeholder="宁波市高新区浙江大学软件学院教学楼409"
+                              class="m-wrap medium"></textarea>
+                </div>
+                <div class="add-ap_alert">
+                    <strong>Warning!</strong> 请填写正确信息.
                 </div>
                 <div class="button-group">
-                    <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" > 取消</button>
-                    <button type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default" style="background-color: #00acac; color: white;"> 保存</button>
+                    <button id="add_ap_delete_button" type="button" onclick="CancelAddAp('.add-ap')" class="btn btn-default"
+                            > 取消</button>
+                    <button type="button" id="add_ap_save_button"
+                            class="btn btn-default" style="background-color: #00acac; color: white;"> 保存</button>
                 </div>
             </div>
         </div>
+
         
         
         <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>

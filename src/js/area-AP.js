@@ -5,24 +5,50 @@ $(function() {
     var day = date.getDate();
 
     var mydata = [];
-    /*$.ajax({
-        url: "/api/device-trail?mac=" + macId,
-        type: "GET",
-        dataType: "json",
-        success: function(data) {
-            console.log(data);
-
-        }
-    })*/
-
     mydata = [
         ['一楼电梯旁', 45.0],
-        ['二楼会议室', 26.8], 
-        ['后勤部', 12.8], 
+        ['二楼会议室', 26.8],
+        ['后勤部', 12.8],
         ['电影院', 8.5],
         ['奶茶店', 6.2],
         ['童装专卖店', 0.7]
     ];
+
+    /*
+    (function($) {
+        $.getUrlParam = function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    })(jQuery);*/
+
+    var lng = sessionStorage.getItem("lng");
+    var lat = sessionStorage.getItem("lat");
+    var name = sessionStorage.getItem("name");
+    console.log(name);
+    console.log(lng);
+    console.log(lat);
+    $.ajax({
+        type: "POST",
+        url: "/api/aps-detail/",
+        data: {
+            "lng": lng,
+            "lat": lat
+        },
+        cache: false,
+        async: false,
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function() {
+            console.log("fail");
+        }
+
+    })
+
     //饼图
     $('#pieChart').highcharts({
         chart: {

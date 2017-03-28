@@ -181,6 +181,7 @@ IE8 fix for form input height in fluid rows
 ***/
 .ie8 .row-fluid [class*="span"] {
     min-height: 20px !important;
+
 }
 
 /***
@@ -333,6 +334,7 @@ Header and header elements.
 
 .header.navbar-fixed-top {
   z-index: 9995 !important;
+  height: 60px;
 }
 
 .header .brand {
@@ -370,11 +372,13 @@ Header and header elements.
   border: 0px;
   padding: 0px; 
   box-shadow: none;
-  height: 42px; 
+  height: 50px;
 }
 
 .header .nav {
-  display: block; 
+  display: block;
+  position: relative;
+  top: 10px;
 }
 
 .header .nav > li {
@@ -465,7 +469,7 @@ Page container
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  /*margin-top: 50px;*/
 }
 
 /***
@@ -881,7 +885,8 @@ Page content
 .page-content {  
   margin-top: 0px;   
   padding: 0px;
-  background-color: #fff; 
+  background-color: #fff;
+  margin-top: 60px;
 }
 
 .ie8 .page-content { 
@@ -5306,4 +5311,8 @@ Datatables Plugin(in v1.3)
 .dataTable .details tr:nth-child(even) td,
 .dataTable .details tr:nth-child(even) th {
   background-color: #eee !important;
+}
+
+.BMap_cpyCtrl  {
+  display: none;
 }

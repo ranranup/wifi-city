@@ -5,9 +5,9 @@
 #r-result{
 	width:100%;
 }
-.page-content .breadcrumb{
-	margin-top: 8px;
-}
+/*.page-content .breadcrumb{*/
+	/*margin-top: 8px;*/
+/*}*/
 .page-content #page-container{
 	margin-top: 20px;
 }
@@ -61,8 +61,26 @@
     box-shadow:inset 0px 1px 3px 0px rgba(0,0,0,0.50);
     opacity:0.5; 
     -moz-opacity:0.5;  
-} 
- 
+}
+.loading {
+    position: absolute; top: 0px;
+    filter: alpha(opacity=80);
+    background-color: #222222;
+    z-index: 1002; left: 0px;
+    box-shadow:inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+    opacity:0.5;
+    -moz-opacity:0.5;
+}
+.loading img{
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: -140px;
+    right: 0px;
+    margin: auto;
+    display: none;
+}
+
 .model{  
     position: absolute; 
     z-index: 1003;   
@@ -150,7 +168,7 @@
 .add-ap .body{
 	width:460px;
 	height:280px;
-	margin: 15px;
+    padding: 20px;
 }
 .add-ap .body label{
 	font-family:SFNSText-Regular;
@@ -164,6 +182,18 @@
 	border-radius:4px;
 	width:200px;
 	height:32px;
+}
+.add_item{
+    margin-bottom: 10px;
+}
+.add_item label{
+    width: 20%;
+}
+.add-ap_alert{
+    color: #b94a48;
+    background-color: #f2dede;
+    width: 280px;
+    display: none;
 }
 a:focus {outline: none;}
 /* 通用表格显示 */
@@ -232,4 +262,18 @@ table{
     background:none
 }
  
-/*end for pop*/  
+/*end for pop*/
+
+.alert{
+    position: absolute;
+    width: 80%;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: none;
+}
+.alert-error{
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}

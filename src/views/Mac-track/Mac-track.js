@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    App.init();
+});
 // 百度地图API功能
 $(function() {
     var map = new BMap.Map("container");
@@ -19,6 +22,7 @@ $(function() {
     map.addControl(overViewOpen); //右下角，打开 
 
     $('#btn-macInfo').on('click', function() {
+        /*map.removeOverlay(marker);// 将标注从地图中清除*/
         onShowMacTrack($("#macId").val());
         console.log($("#macId").val());
     });
@@ -32,7 +36,12 @@ $(function() {
                 var positions = [];
                 var positinsDate = [];
                 if (data.points.length == 0) {
-                    alert("不存在");
+                    setTimeout(function() {
+                        $(".alert-error").css("display", "none");
+                        $("#mask").hide();
+                    }, 2000);
+                    $(".alert-error").css("display", "block");
+                    showMask();
                 } else {
                     for (var i = 0; i < data.points.length; i++) {
                         positions.push(new BMap.Point(data.points[i].lng, data.points[i].lat));
@@ -71,6 +80,7 @@ $(function() {
                         }); // 创建标注
                         marker.setZIndex(999);
                         map.addOverlay(marker); // 将标注添加到地图中
+
                         addMouseoverHandler(content, marker);
                         addMouseoutHandler(content, marker);
                     }
@@ -96,9 +106,21 @@ $(function() {
                 }
             },
             error: function() {
+                setTimeout(function() {
+                    $(".alert-error").css("display", "none");
+                    $("#mask").hide();
+                }, 2000);
+                $(".alert-error").css("display", "block");
+                showMask();
                 console.log("fail");
             }
         });
+    }
+
+    function showMask() {
+        $("#mask").css("height", $(document).height());
+        $("#mask").css("width", $(document).width());
+        $("#mask").show();
     }
 });
 
