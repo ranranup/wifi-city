@@ -28,14 +28,13 @@ $(function() {
     var lat = sessionStorage.getItem("lat");
     var name = sessionStorage.getItem("name");
     console.log(name);
-    console.log(lng);
-    console.log(lat);
+    /*console.log(lng);
+    console.log(lat);*/
     $.ajax({
         type: "POST",
         url: "/api/aps-detail/",
         data: {
-            "lng": lng,
-            "lat": lat
+            "poi": name
         },
         cache: false,
         async: false,
