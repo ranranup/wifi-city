@@ -10,19 +10,48 @@ $(function() {
     $(".top-content .top-right h1").html("300");
     $("#container .sub-title").html("该AP负载总量的变化趋势图");
 
+
+    var timeline = [];
+    timeline_tmp = 0;
+    for(let m=8;m<15;m++){
+        if (m < 10) {
+            timeline[timeline_tmp] = "0" + m + ": 00";
+        } else {
+            timeline[timeline_tmp] = m + ": 00";
+        }
+        timeline_tmp++;
+    }
     //面积图
     Highcharts.setOptions({
         timezoneOffset: -8
     });
-    var data = [];
-    /*data = [
-                    ["09:00", 13],
-                    ["10:00", 45],
-                    ["11:00", 45],
-                    ["12:00", 25],
-                    ["13:00", 35],
-                    ["14:00", 90]
-                ];*/
+    var data = [
+        /*["00:00", 0],
+        ["01:00", 0],
+        ["02:00", 0],
+        ["03:00", 0],
+        ["04:00", 0],
+        ["05:00", 0],
+        ["06:00", 0],
+        ["07:00", 0],*/
+        ["08:00", 0],
+        ["09:00", 0],
+        ["10:00", 0],
+        ["11:00", 0],
+        ["12:00", 0],
+        ["13:00", 0],
+        ["14:00", 0]/*,
+        ["15:00", 0],
+        ["16:00", 0],
+        ["17:00", 0],
+        ["18:00", 0],
+        ["19:00", 0],
+        ["20:00", 0],
+        ["21:00", 0],
+        ["22:00", 0],
+        ["23:00", 0],*/
+    ];
+    
     var messgae = {
         "count": [45, 39, 40, 52, 92],
         "hour_from": 9,
@@ -32,7 +61,7 @@ $(function() {
     var hour_to = Number(messgae.hour_to);
     var count = messgae.count;
 
-    var time = [];  
+    var time = [];
     var tmp = 0;
     for (let i = hour_from; i < hour_to + 1; i++) {
         if (i < 10) {
@@ -46,9 +75,9 @@ $(function() {
         let tmp_data = [];
         tmp_data[0] = time[j];
         tmp_data[1] = count[j];
-        data[j] = tmp_data;
+        data[1+j] = tmp_data;
     }
-    
+
 
     $('#timeChart').highcharts({
         chart: {
@@ -62,33 +91,11 @@ $(function() {
                 '鼠标拖动可以进行缩放' : '手势操作进行缩放'
         },
         xAxis: {
-            type: 'datetime',
-            dateTimeLabelFormats: {
-                millisecond: '%H:%M:%S.%L',
-                second: '%H:%M:%S',
-                minute: '%H:%M',
-                hour: '%H:%M',
-                day: '%m-%d',
-                week: '%m-%d',
-                month: '%Y-%m',
-                year: '%Y'
-            }
-        },
-        tooltip: {
-            dateTimeLabelFormats: {
-                millisecond: '%H:%M:%S.%L',
-                second: '%H:%M:%S',
-                minute: '%H:%M',
-                hour: '%H:%M',
-                day: '%Y-%m-%d',
-                week: '%m-%d',
-                month: '%Y-%m',
-                year: '%Y'
-            }
+            categories: timeline
         },
         yAxis: {
             title: {
-                text: 'Exchange rate'
+                text: '负载量'
             }
         },
         legend: {
