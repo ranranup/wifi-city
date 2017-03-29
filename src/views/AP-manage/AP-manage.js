@@ -40,9 +40,9 @@ $(document).ready(function() {
 function SearchAP() {
     $("#search_button").click(function() {
         var searchstring = $("#search_input").val();
-        // console.log(data);
+        console.log(searchstring);
         $.ajax({
-            url: "/api/ap-manager/search?mac=" + "58:2b:c2:50:bd:8d",
+            url: "/api/ap-manager/search?mac=" + searchstring,
             type: "GET",
             dataType: "json",
             success: function(data) {
