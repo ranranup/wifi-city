@@ -22,9 +22,8 @@ $(function() {
     map.addControl(overViewOpen); //右下角，打开 
 
     $('#btn-macInfo').on('click', function() {
-        /*map.removeOverlay(marker);// 将标注从地图中清除*/
         onShowMacTrack($("#macId").val());
-        console.log($("#macId").val());
+        //console.log($("#macId").val());
     });
 
     function onShowMacTrack(macId) {
@@ -66,7 +65,7 @@ $(function() {
                         title: "信息窗口", // 信息窗口标题
                         enableMessage: true //设置允许信息窗发送短息
                     };
-
+                    /*map.removeOverlay(marker);// 将标注从地图中清除*/
                     for (var i = 0; i < positions.length; i++) {
                         var myPoint = positions[i];
                         var content = positinsDate[i];

@@ -66,7 +66,7 @@ $(function() {
         dataType: "json",
         success: function(data) {
             //console.log(".......");
-            console.log(data);
+            /*console.log(data);*/
             data = data.ap;
                 $(".top-content .content-AP").html("该区域位于北纬"+lat+"，东经"+lng+"。该区域是"+name+"，在该区域中一共有"+data.length+"个AP。(点击右侧AP可进入详情页面)");
                 $(".left-content .sub-title01").html(name+"-AP数据对比图")

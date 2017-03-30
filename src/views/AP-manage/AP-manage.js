@@ -39,6 +39,8 @@ $(document).ready(function() {
 //查找单个mac,并且将查找到的具体信息显示出来
 function SearchAP() {
     $("#search_button").click(function() {
+        $("#poi_name_label").css("display","none");
+        $("#poi_name").css("display","none");
         var searchstring = $("#search_input").val();
         if(searchstring==""||searchstring==undefined){
             alert("请输入查询的MAC");
