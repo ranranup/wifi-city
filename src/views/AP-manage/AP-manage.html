@@ -28,6 +28,15 @@
         <link href="../../css/default.css" rel="stylesheet" type="text/css" />
         <link href="../../css/style.css" rel="stylesheet" type="text/css" />
         <link href="AP-manage.css" rel="stylesheet" type="text/css" />
+        <style>
+            .add-ap .body input {
+                background: #ffffff;
+                border: 1px solid #a9b2bd;
+                border-radius: 4px;
+                width: 250px;
+                height: 32px;
+            }
+        </style>
     </head>
     <body class="page-header-fixed">
         <!-- BEGIN HEADER -->
@@ -99,12 +108,12 @@
                             
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="../People-track/People-track.html">
                             <i class="fa fa-hospital-o fa-fw"></i>
                             <span class="title">&nbsp;人流轨迹</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li  class="has-sub" >
                         <a href="javascript:void(0);">
                             <i class="fa fa-angle-double-down fa-fw"></i>
@@ -195,9 +204,16 @@
                     <input  id="ap_lat" placeholder="29.2324" class="m-wrap medium">
                 </div>
                 <div class="add_item remark" style="margin-bottom:5px;">
-                    <label>位置信息</label>
-                    <textarea style="width: 100%;" id="ap_position" placeholder="宁波市高新区浙江大学软件学院教学楼409"
-                              class="m-wrap medium"></textarea>
+                    <label>地址</label>
+                    <input id="poi_name" placeholder="宁波市高新区浙江大学软件学院" class="m-wrap medium">
+                    <!-- <textarea style="width: 100%;" id="poi_name" placeholder="宁波市高新区浙江大学软件学院"
+                              class="m-wrap medium"></textarea> -->
+                </div>
+                <div class="add_item remark" style="margin-bottom:5px;">
+                    <label>门牌号</label>
+                    <input id="ap_position" placeholder="教学楼409" class="m-wrap medium">
+                    <!-- <textarea style="width: 100%;" id="ap_position" placeholder="教学楼409"
+                              class="m-wrap medium"></textarea> -->
                 </div>
                 <div class="add-ap_alert">
                     <strong>Warning!</strong> 请填写正确信息.

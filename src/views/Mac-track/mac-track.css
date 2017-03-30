@@ -31,3 +31,17 @@
 	opacity:0.5;
 	-moz-opacity:0.5;
 }
+#macId{
+    height: 45px;
+    width:300px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+#btn-macInfo {
+	height: 45px;
+	margin-bottom: 5px;
+	background: #00acac;
+	font-size:16px;
+	color: #fff;
+}

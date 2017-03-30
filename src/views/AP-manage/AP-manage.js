@@ -161,18 +161,21 @@ function SaveAddAP() {
     var ap_mac = $("#ap_mac").val().trim(" ");
     var ap_lng = $("#ap_lng").val();
     var ap_lat = $("#ap_lat").val();
+    var poi_name = $("#poi_name").val();
     var ap_position = $("#ap_position").val();
-    if (ap_mac == "" || ap_lng == "" || ap_lat == "" || ap_position == "") {
+    if (ap_mac == "" || ap_lng == "" || ap_lat == "" || poi_name == ""|| ap_position == "") {
         $(".add-ap_alert").css("display", "block");
         return;
     }
     var send_data = {
         "ap_id":ap_id,
         "ap_mac": ap_mac,
+        "ap_poi": poi_name,
         "ap_position": ap_position,
         "ap_lng": ap_lng,
         "ap_lat": ap_lat
     };
+    console.log(typeof send_data.ap_position);
     $.ajax({
         url: "/api/ap-manager/save/",
         data: send_data,

@@ -8,7 +8,7 @@
     <script src="../../lib/js/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=cGZxldFBKNqlpa0dsA0I8qBZG6VDQjRn"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>    
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
     <script type="text/javascript" src="../../lib/js/Heatmap_min.js"></script>
     <!--[if lt IE 9]>
     <script src="js/bootstrap/html5shiv.min.js"></script>
@@ -23,7 +23,7 @@
     <script src="../../lib/js/highcharts/modules/exporting.js"></script>
     <script src="../../js/app.js" type="text/javascript"></script>
     <script src="../../js/default.js" type="text/javascript"></script>
-     <script src="mac-track.js" type="text/javascript"></script>
+    <script src="mac-track.js" type="text/javascript"></script>
     
     <link rel="icon" href="../../favicon.ico" />
     <link href="../../lib/css/pace/dataurl.css" rel="stylesheet" type="text/css" />
@@ -96,12 +96,12 @@
               
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="../People-track/People-track.html">
               <i class="fa fa-hospital-o fa-fw"></i>
               <span class="title">&nbsp;人流轨迹</span>
             </a>
-          </li>
+          </li> -->
           
           <li  class="has-sub" >
             <a href="javascript:void(0);">
@@ -140,14 +140,18 @@
       <!--content-page-->
       <ul class="breadcrumb">
         <li>当前位置：</li>
-      <li class="active">设备轨迹</li>
+        <li class="active">设备轨迹</li>
       </ul>
       <div id="page-container"style="width:90%;margin-left:10px;">
-        <div class="top-content">
+        <!-- <div class="top-content">
           <div class="form-inline">
             <input class="form-control" type="text" name="macId" id="macId" placeholder="请输入mac地址">
             <button class="btn btn-info" id="btn-macInfo" type="button">搜索</button>
           </div>
+        </div> -->
+        <div class="search">
+          <input type="text" id="macId" class="form-control search-input" placeholder="请输入mac地址......">
+          <button type="button" id="btn-macInfo" class="btn btn-default">Search</button>
         </div>
         <div id="container" style="width:90%;margin-left:10px;height:500px;"></div>
       </div>
