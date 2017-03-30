@@ -1,0 +1,116 @@
+/*年排行榜
+    http://192.168.1.108:8000/api/ranklist/
+*/
+{"poi": [
+    {"total": 621, "name": "\u7ef4\u4e5f\u7eb3\u56fd\u9645\u9152\u5e97(\u5b81\u6ce2\u73af\u57ce\u5357\u8def\u5e97)"}, 
+    {"total": 702, "name": "\u56db\u5b63\u745e\u4e3d\u9152\u5e97"}, 
+    {"total": 1348, "name": "\u5b81\u6ce2\u5357\u82d1\u65b0\u57ce\u9152\u5e97"}, 
+    {"total": 1107, "name": "\u5b81\u6ce2\u6d32\u6e2f\u5927\u9152\u5e97"}, 
+    {"total": 594, "name": "\u5b81\u6ce2\u5927\u9152\u5e97"}, 
+    {"total": 1456, "name": "\u8fbe\u84ec\u5c71\u5927\u9152\u5e97"}, 
+    {"total": 1275, "name": "\u56db\u5b63\u6c38\u9038\u5927\u996d\u5e97"}, 
+    {"total": 594, "name": "\u5b81\u6ce2\u73b0\u4ee3\u5927\u9152\u5e97"}, 
+    {"total": 783, "name": "\u5bcc\u8302\u9152\u5e97"}
+    
+]}
+
+{
+    "name" : "软件学院教学楼",
+    "poi": [
+        {"total": 621, "name": "\u7ef4\u4e5f\u7eb3\u56fd\u9645\u9152\u5e97(\u5b81\u6ce2\u73af\u57ce\u5357\u8def\u5e97)"}, 
+        {"total": 702, "name": "\u56db\u5b63\u745e\u4e3d\u9152\u5e97"}, 
+        {"total": 1348, "name": "\u5b81\u6ce2\u5357\u82d1\u65b0\u57ce\u9152\u5e97"}, 
+        {"total": 1107, "name": "\u5b81\u6ce2\u6d32\u6e2f\u5927\u9152\u5e97"}, 
+        {"total": 594, "name": "\u5b81\u6ce2\u5927\u9152\u5e97"}, 
+        {"total": 1456, "name": "\u8fbe\u84ec\u5c71\u5927\u9152\u5e97"}, 
+        {"total": 1275, "name": "\u56db\u5b63\u6c38\u9038\u5927\u996d\u5e97"}, 
+        {"total": 594, "name": "\u5b81\u6ce2\u73b0\u4ee3\u5927\u9152\u5e97"}, 
+        {"total": 783, "name": "\u5bcc\u8302\u9152\u5e97"}
+        
+    ]
+}
+
+/*热力图
+    http://192.168.1.108:8000/api/load-analyze/
+*/
+{"poi": [
+    {"lat": "29.846669", "count": 5724, "lng": "121.600225", "name": "\u7ef4\u4e5f\u7eb3\u56fd\u9645\u9152\u5e97(\u5b81\u6ce2\u73af\u57ce\u5357\u8def\u5e97)"}, 
+    {"lat": "29.843220", "count": 4925, "lng": "121.572587", "name": "\u56db\u5b63\u745e\u4e3d\u9152\u5e97"}, 
+    {"lat": "29.811961", "count": 1300, "lng": "121.553024", "name": "\u5b81\u6ce2\u5357\u82d1\u65b0\u57ce\u9152\u5e97"}, 
+    {"lat": "29.880258", "count": 2487, "lng": "121.521254", "name": "\u5b81\u6ce2\u6d32\u6e2f\u5927\u9152\u5e97"},
+    {"lat": "29.878849", "count": 3363, "lng": "121.561282", "name": "\u5b81\u6ce2\u5927\u9152\u5e97"}, 
+    {"lat": "30.085126", "count": 550, "lng": "121.519971", "name": "\u8fbe\u84ec\u5c71\u5927\u9152\u5e97"},
+    {"lat": "29.961573", "count": 269, "lng": "121.590085", "name": "\u56db\u5b63\u6c38\u9038\u5927\u996d\u5e97"}, 
+    {"lat": "29.866626", "count": 7726, "lng": "121.583620", "name": "\u5b81\u6ce2\u73b0\u4ee3\u5927\u9152\u5e97"}, 
+    {"lat": "29.871362", "count": 751, "lng": "121.559306", "name": "\u5bcc\u8302\u9152\u5e97"}, 
+    {"lat": "29.838531", "count": 2272, "lng": "121.581192", "name": "\u5b81\u6ce2\u6668\u5149\u5927\u9152\u5e97"}, 
+    {"lat": "29.887024", "count": 2030, "lng": "121.599965", "name": "\u5b81\u6ce2\u6717\u9038\u5927\u9152\u5e97"}, 
+    {"lat": "30.158182", "count": 6403, "lng": "121.247608", "name": "\u6148\u6eaa\u767d\u91d1\u6c49\u7235\u5927\u9152\u5e97"},
+    {"lat": "29.851325", "count": 1126, "lng": "121.514615", "name": "\u5609\u4e50\u5927\u9152\u5e97"}, 
+    {"lat": "29.857401", "count": 2459, "lng": "121.566453", "name": "\u65e5\u6708\u5bbe\u9986"}, 
+    {"lat": "29.873011", "count": 4763, "lng": "121.540272", "name": "\u9526\u6c5f\u4e4b\u661f\u9152\u5e97(\u5b81\u6ce2\u706b\u8f66\u7ad9\u5e97)"}, 
+    {"lat": "29.892814", "count": 248, "lng": "121.528904", "name": "\u771f\u548c\u5927\u9152\u5e97"}, 
+    {"lat": "29.874143", "count": 2561, "lng": "121.544207", "name": "\u5b81\u6ce2\u996d\u5e97"}, 
+    {"lat": "29.876692", "count": 1164, "lng": "121.544055", "name": "\u6d77\u4ff1\u5927\u9152\u5e97"}, 
+    {"lat": "29.800769", "count": 6158, "lng": "121.552282", "name": "\u9996\u5357\u5927\u9152\u5e97"},
+    {"lat": "29.830519", "count": 682, "lng": "121.558500", "name": "\u94f6\u82d1\u5927\u9152\u5e97"}
+]}
+
+/*
+二级页面
+指定经纬度下，所有的AP位置信息，名字，负载量以及该经纬度下，所有AP在当前月份负载量的和
+每个AP在今年每个月的负载量*/
+
+mac地址： 69:06:27:10:eb:58(较为合理)
+          6d:16:45:4a:3c:b5
+
+
+
+
+[
+{"ap_mac": "68:cd:de:50:2d:cc", "ap_count": 207, "ap_postion": "E楼538室"},
+{"ap_mac": "19:02:40:8c:d2:98", "ap_count": 157, "ap_postion": "B楼903室"},
+{"ap_mac": "7a:89:98:e2:4c:de", "ap_count": 377, "ap_postion": "F楼527室"},
+{"ap_mac": "e7:75:db:79:86:1a", "ap_count": 169, "ap_postion": "C楼942室"},
+{"ap_mac": "a5:d5:11:41:9a:1a", "ap_count": 225, "ap_postion": "B楼928室"},
+{"ap_mac": "a9:45:cc:9e:a3:60", "ap_count": 149, "ap_postion": "E楼826室"},
+{"ap_mac": "7c:2a:64:67:eb:08", "ap_count": 588, "ap_postion": "H楼519室"},
+{"ap_mac": "70:0d:75:06:5b:21", "ap_count": 342, "ap_postion": "E楼935室"},
+{"ap_mac": "01:ea:6d:38:4e:0d", "ap_count": 214, "ap_postion": "B楼607室"},
+{"ap_mac": "41:e2:7e:cb:e3:b8", "ap_count": 665, "ap_postion": "H楼846室"},
+{"ap_mac": "36:37:02:b6:c6:9b", "ap_count": 179, "ap_postion": "G楼248室"},
+{"ap_mac": "7b:bd:d3:5e:b4:8c", "ap_count": 473, "ap_postion": "D楼133室"},
+{"ap_mac": "65:b7:85:50:29:c2", "ap_count": 354, "ap_postion": "D楼842室"},
+{"ap_mac": "5d:17:13:51:a8:d8", "ap_count": 156, "ap_postion": "B楼536室"},
+{"ap_mac": "d1:d2:e9:b8:e1:40", "ap_count": 150, "ap_postion": "A楼906室"},
+{"ap_mac": "d2:8a:4a:90:6a:d2", "ap_count": 442, "ap_postion": "F楼827室"},
+{"ap_mac": "e2:ba:d5:95:12:bb", "ap_count": 699, "ap_postion": "D楼548室"},
+{"ap_mac": "7a:56:51:97:d1:ec", "ap_count": 279, "ap_postion": "C楼441室"},
+{"ap_mac": "e3:46:a4:6a:2e:ed", "ap_count": 256, "ap_postion": "C楼236室"},
+{"ap_mac": "1e:e5:45:7d:38:26", "ap_count": 168, "ap_postion": "F楼526室"},
+{"ap_mac": "02:58:97:ec:6e:9d", "ap_count": 202, "ap_postion": "A楼719室"},
+{"ap_mac": "d5:00:5e:d8:71:93", "ap_count": 463, "ap_postion": "C楼419室"},
+{"ap_mac": "6c:eb:76:08:24:17", "ap_count": 278, "ap_postion": "A楼907室"},
+{"ap_mac": "19:62:e1:06:97:7e", "ap_count": 409, "ap_postion": "E楼547室"},
+{"ap_mac": "3b:c8:05:a9:2a:e0", "ap_count": 165, "ap_postion": "D楼748室"},
+{"ap_mac": "0a:1c:67:aa:b8:d4", "ap_count": 249, "ap_postion": "H楼302室"},
+{"ap_mac": "b7:c0:c1:a8:d5:c4", "ap_count": 445, "ap_postion": "C楼628室"},
+{"ap_mac": "34:70:2e:4e:ad:20", "ap_count": 197, "ap_postion": "C楼602室"},
+{"ap_mac": "0e:02:38:ce:d6:b8", "ap_count": 419, "ap_postion": "H楼827室"},
+{"ap_mac": "7c:90:cb:81:1a:5c", "ap_count": 251, "ap_postion": "F楼826室"},
+{"ap_mac": "39:4e:1e:58:16:c2", "ap_count": 175, "ap_postion": "E楼706室"},
+{"ap_mac": "d6:72:5c:db:67:d5", "ap_count": 206, "ap_postion": "C楼523室"},
+{"ap_mac": "12:ec:a9:b8:65:24", "ap_count": 632, "ap_postion": "B楼926室"},
+{"ap_mac": "75:90:92:38:45:dc", "ap_count": 406, "ap_postion": "C楼904室"},
+{"ap_mac": "4a:dd:d4:65:9c:14", "ap_count": 178, "ap_postion": "H楼722室"},
+{"ap_mac": "3e:b3:23:d8:1e:63", "ap_count": 206, "ap_postion": "G楼124室"},
+{"ap_mac": "40:79:6e:b1:79:79", "ap_count": 187, "ap_postion": "E楼125室"},
+{"ap_mac": "d9:0b:34:38:6e:90", "ap_count": 165, "ap_postion": "H楼838室"},
+{"ap_mac": "31:b1:0d:28:05:55", "ap_count": 268, "ap_postion": "A楼301室"},
+{"ap_mac": "a7:79:25:32:c0:2b", "ap_count": 208, "ap_postion": "A楼923室"},
+{"ap_mac": "3c:67:50:02:75:ab", "ap_count": 297, "ap_postion": "F楼133室"},
+{"ap_mac": "d5:91:17:9e:e8:42", "ap_count": 230, "ap_postion": "H楼902室"}
+]
+
+
+{"count": [45, 39, 40, 52, 92], "hour_from": 9, "hour_to": 14}
