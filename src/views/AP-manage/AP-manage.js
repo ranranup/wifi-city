@@ -40,7 +40,12 @@ $(document).ready(function() {
 function SearchAP() {
     $("#search_button").click(function() {
         var searchstring = $("#search_input").val();
-        console.log(searchstring);
+        if(searchstring==""||searchstring==undefined){
+            alert("请输入查询的MAC");
+            return;
+        }
+
+        // console.log(data);
         $.ajax({
             url: "/api/ap-manager/search?mac=" + searchstring,
             type: "GET",
@@ -48,6 +53,7 @@ function SearchAP() {
             success: function(data) {
                 console.log(data);
                 var info = data.ap[0];
+                $("#ap_id").val(info.ap_id);
                 $("#ap_mac").val(info.ap_mac);
                 $("#ap_lng").val(info.ap_lng);
                 $("#ap_mac").val(info.ap_mac);
@@ -57,10 +63,18 @@ function SearchAP() {
                 $(".add-ap>.head > span").text("所查找的AP信息");
                 showMask();
                 $(".add-ap").show();
+
+            },
+            error: function() {
+                setTimeout(function() {
+                    $(".alert-error").css("display", "none");
+                }, 3000);
+                $(".alert-error").css("display", "block");
             }
         })
 
     });
+    //$("#search_input").val("");
 
 }
 
@@ -69,31 +83,40 @@ function showMask() {
     $("#mask").css("width", $(document).width());
     $("#mask").show();
 }
-
-function DeleteAp(event) {
+function DeleteAp(event){
     showMask();
     $(".del-ap").show();
     var info = event.srcElement.parentElement.parentElement.parentElement.innerText.split("	");
-    var send_data = {
-        "mac": info[1]
-    };
+    $("#delete_ap_confirm_button").click(function() {
+        ConfirmDeleteAp(info[1]);
+    })
+}
+function ConfirmDeleteAp(info) {
+    //showMask();
+    //$(".del-ap").show();
+    //var info = event.srcElement.parentElement.parentElement.parentElement.innerText.split("	");
+    //var send_data = {
+    //    "mac": info[1]
+    //};
+    console.log(info);
     $.ajax({
-        url: "/api/ap-manager/delete/",
-        data: send_data,
+        url: "/api/ap-manager/delap/",
+        data: {"ap_mac":info},
         type: "POST",
         dataType: "json",
         success: function(data) {
-            if (data.success()) {
-                setTimeout(function() {
-                    $(".alert-success").css("display", "none");
-                }, 1000);
-                $(".alert-success").css("display", "block");
-            } else {
-                setTimeout(function() {
-                    $(".alert-error").css("display", "none");
-                }, 1000);
-                $(".alert-error").css("display", "block");
-            }
+            setTimeout(function() {
+                $(".alert-success").css("display", "none");
+            }, 3000);
+            $(".alert-success").css("display", "block");
+            location.reload();
+
+            },
+        error:function() {
+            setTimeout(function() {
+                $(".alert-error").css("display", "none");
+            }, 3000);
+            $(".alert-error").css("display", "block");
 
             console.log(data);
         }
@@ -103,7 +126,9 @@ function DeleteAp(event) {
 
 function EdictAp() {
     showMask();
+    $("#add_ap_save_button").css("display","block");
     var info = event.srcElement.parentElement.parentElement.parentElement.innerText.split("	");
+    $("#ap_id").val(info[0]);
     $("#ap_mac").val(info[1]);
     $("#ap_lng").val(info[2]);
     $("#ap_position").val(info[4]);
@@ -115,6 +140,9 @@ function EdictAp() {
 }
 
 function AddAp() {
+    $(".add-ap>.head > span").text("写入AP信息");
+    $("#ap_id").css("display","none");
+    $("#ap_id_label").css("display","none");
     showMask();
     $(".add-ap").show();
     $("#add_ap_save_button").click(function() {
@@ -129,7 +157,8 @@ function CancelDeleteAp() {
 }
 
 function SaveAddAP() {
-    var ap_mac = $("#ap_mac").val();
+    var ap_id = $("#ap_id").val()==undefined?"":$("#ap_id").val();
+    var ap_mac = $("#ap_mac").val().trim(" ");
     var ap_lng = $("#ap_lng").val();
     var ap_lat = $("#ap_lat").val();
     var ap_position = $("#ap_position").val();
@@ -138,10 +167,11 @@ function SaveAddAP() {
         return;
     }
     var send_data = {
+        "ap_id":ap_id,
         "ap_mac": ap_mac,
         "ap_position": ap_position,
         "ap_lng": ap_lng,
-        "ap_lat": ap_lat,
+        "ap_lat": ap_lat
     };
     $.ajax({
         url: "/api/ap-manager/save/",
@@ -149,19 +179,18 @@ function SaveAddAP() {
         type: "POST",
         dataType: "json",
         success: function(data) {
-            if (data.success()) {
-                setTimeout(function() {
-                    $(".alert-success").style.display = "none";
-                }, 1000);
-                $(".alert-success").style.display = "block";
-            } else {
-                setTimeout(function() {
-                    $("alert-error").style.display = "none";
-                }, 1000);
-                $(".alert-error").style.display = "block";
-            }
+            setTimeout(function() {
+                $(".alert-success").css("display", "none");
+            }, 3000);
+            $(".alert-success").css("display", "block");
 
             console.log(data);
+        },
+        error:function(){
+            setTimeout(function() {
+                $(".alert-error").css("display", "none");
+            }, 3000);
+            $(".alert-error").css("display", "block");
         }
     })
     $("#mask").hide();

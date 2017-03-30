@@ -1,3 +1,6 @@
+$(document).ready(function() {
+	App.init();
+});
 $(function() {
 	var map = new BMap.Map("container", {
 		enableMapClick: false
@@ -21,8 +24,20 @@ $(function() {
 		url: 'api/load-analyze/',
 		type: "GET",
 		dataType: "json",
+		beforeSend: function() {
+			//添加 loding 样式
+			$("#loading").css("height", $(document).height());
+			$("#loading").css("width", $(document).width());
+			if ($(document).width() >= 880) {
+				$("#loading").css("margin-left", 225);
+			}
+			$("#loadingimg").css("display", "block");
+			$("#loading").show();
+		},
 		success: function(data) {
+			$("#loading").hide(); //加载成功关闭loding
 			var points = data.poi;
+			sessionStorage.setItem("points", points);
 			for (var i = 0; i < points.length; i++) {
 				var hotPoint = new BMap.Point(points[i].lng, points[i].lat);
 
@@ -43,7 +58,17 @@ $(function() {
 					sessionStorage.setItem("lat", p.lat);
 					sessionStorage.setItem("name", name);
 
+					/*sessionStorage.setItem("lng", 12222);
+					sessionStorage.setItem("lat", 23333);
+					sessionStorage.setItem("name", "张三");*/
+
+					/*location.href = "area-AP.html?areaInfo=" + areaInfo; // 转到二级页面*/
 					location.href = "area-AP.html"; // 转到二级页面
+					/*console.log(name);
+					console.log(areaInfo);
+					console.log("传到二级页面的经纬度信息" + areaInfo);
+					console.log("点的位置是" + hotPoint.lng + "," + hotPoint.lat);
+					console.log("marker的位置是" + p.lng + "," + p.lat);*/
 				}
 			}
 

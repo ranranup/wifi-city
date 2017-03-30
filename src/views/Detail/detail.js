@@ -2,13 +2,13 @@ $(function() {
     var name = sessionStorage.getItem("name");
     var lng = sessionStorage.getItem("lng");
     var lat = sessionStorage.getItem("lat");
-    /*var ap_mac = sessionStorage.getItem("ap_mac");
-    var ap_position = sessionStorage.getItem("ap_position");*/
-    var ap_position = "";
+    var ap_mac = sessionStorage.getItem("ap_mac");
+    var ap_position = sessionStorage.getItem("ap_postion");
+    var ap_count = sessionStorage.getItem("ap_count");
     $(".breadcrumb .show-position a").html(name);
-    $(".top-content .top-left .title").html(name + "AP1的详情");
+    $(".top-content .top-left .title").html(name+ ap_position + "的详情");
     $(".top-content .top-left .content-AP").html("该设备位于（" + lng + "," + lat + "）的" + name + ap_position);
-    $(".top-content .top-right h1").html("300");
+    $(".top-content .top-right h1").html(ap_count);
     $("#container .sub-title").html("该AP负载总量的变化趋势图");
 
 

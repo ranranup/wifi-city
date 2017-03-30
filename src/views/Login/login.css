@@ -1,0 +1,86 @@
+body {
+	padding-top: 50px;
+	background-color: #444 !important;
+	/*background-image: url('../../image/login_background.png');*/
+	/*background-size: 100%;*/
+}
+
+.form-signin {
+	padding: 15px;
+	/* background-color: #eee;*/
+	background-color: #fff;
+	position: absolute;
+	width: 350px;
+	right: 0px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	height: 355px;
+	font-family: 'Open Sans';
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+	font-family: 'Open Sans';
+	font-size: 22px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[id="userid"] {
+	margin-bottom: 15px;
+	margin-top: 15px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.blank {
+	height: 10px;
+}
+input{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+.container .logo{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 105px;
+	/* bottom: 0px; */
+	margin: auto;
+	text-align: center;
+
+}
+.container img{
+	width: 120px;
+}
+.container span{
+	font-style: oblique;
+}

@@ -11,7 +11,8 @@ html, body {
 }
 .header .brand span{
 	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
-	
+    line-height: 60px;
+    font-style: italic;
 }
 .all {
     margin-top: 50px;
@@ -77,6 +78,33 @@ html, body {
 }
 .sidebar .sub-menu li[class*=active]>a {
     color: #00acac !important;
+}
+.mask {
+    position: absolute; top: 0px;
+    filter: alpha(opacity=80);
+    background-color: #1d3649;
+    z-index: 1002; left: 0px;
+    box-shadow:inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+    opacity:0.5;
+    -moz-opacity:0.5;
+}
+.loading {
+    position: absolute; top: 0px;
+    filter: alpha(opacity=80);
+    background-color: #222222;
+    z-index: 1002; left: 0px;
+    box-shadow:inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+    opacity:0.5;
+    -moz-opacity:0.5;
+}
+.loading img{
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: -140px;
+    right: 0px;
+    margin: auto;
+    display: none;
 }
 .maincontent {
     /*width: 100%;*/

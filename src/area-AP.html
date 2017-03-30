@@ -40,7 +40,7 @@
                     <!-- BEGIN LOGO -->
                     <a class="brand" href="index.html">
                         <span style="color: red;font-size: 25px;">SMART</span>
-                        <span style="color: white;font-size: 22px;margin-left: 10px;">CITY</span>
+                        <img src="image/logo-front.png">
                     </a>
                     <!-- END LOGO -->
                     <!-- BEGIN USER -->
@@ -55,7 +55,7 @@
                                 <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
                                 <li><a href="#"><i class="fa fa-tasks"></i> My Tasks</a></li>
                                 <li class="divider"></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Log Out</a></li>
+                                <li><a href="views/Login/login.html"><i class="fa fa-sign-out fa-fw"></i> Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -123,81 +123,37 @@
                 </ul>
             </div>
         </div>
-        <div class="page-content" style="width:90%;">
+        <div class="page-content">
             <!--content-page-->
             <ul class="breadcrumb">
                 <li>当前位置：</li>
                 <li><a href="index.html">主界面</a></li>
-                <li class="active">xx商城</li>
+                <li class="active"></li>
             </ul>
-            <div id="page-container" style="width:90%;margin-left:10px;height:100%;">
+            <div id="page-container" style="height:100%;">
                 <!--我是主要内容-->
-                <div class="top-content">
-                    <div class="title">xx商城AP详情</div>
-                    <p class="content-AP">该区域位于北纬121.23233，东经19.232444。该区域是宁波李惠利医院，在该区域中一共有6个AP。</p>
+                <div class="top-content" id="top-content">
+                    <div class="title"></div>
+                    <div class="sub-top-content">
+                        <p class="content-AP"></p>
+                        <div class="wrapper">
+                            <span>该区域AP分布</span>
+                            <ul class="timeline" id="timeline">
+
+                                <!--<li>-->
+                                    <!--<a class="time">text</a>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="left-content">
-                    <div class="sub-title">xx商城各个AP负载占总负载量的百分比图</div>
+                    <div class="sub-title sub-title01"></div>
                     <div id="pieChart"></div>
-                    <div class="sub-title">xx商城负载总量的变化趋势图</div>
-                    <div id="timeChart"></div>
-                    <div class="sub-title">xx商城负载对比图</div>
+                    <div class="sub-title sub-title02"></div>
+                    <div id="barGraph"></div>
+                    <div class="sub-title sub-title03"></div>
                     <div id="compareChart"></div>
-                </div>
-                <div class="right-content">
-                    <div class="timeline">
-                        <article class="timeline-item alt">
-                            <div class="text-right">
-                                <div class="time-show first">
-                                    <a href="#" class="btn btn-primary">AP 分布</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="timeline-item alt">
-                            <div class="timeline-desk">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <span class="arrow-alt"></span>
-                                        <span class="timeline-icon"></span>
-                                        <h1><a href="views/detail/detail.html" class="red">童装专卖店精品店AP</a></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="timeline-item ">
-                            <div class="timeline-desk">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <span class="arrow"></span>
-                                        <span class="timeline-icon"></span>
-                                        <h1><a href="views/detail/detail.html" class="green">会议大厅AP</a></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="timeline-item alt">
-                            <div class="timeline-desk">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <span class="arrow-alt"></span>
-                                        <span class="timeline-icon"></span>
-                                        <h1><a href="views/detail/detail.html" class="red">电梯旁AP</a></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="timeline-item ">
-                            <div class="timeline-desk">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <span class="arrow"></span>
-                                        <span class="timeline-icon"></span>
-                                        <h1><a href="views/detail/detail.html" class="green">电影院AP</a></h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
                 </div>
             </div>
         </div>
